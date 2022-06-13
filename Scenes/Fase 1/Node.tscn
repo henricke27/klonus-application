@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Node" type="Node"]
+
+[node name="Button" type="Button" parent="."]
+margin_right = 189.0
+margin_bottom = 67.0
+text = "request"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="Button" to="HTTPRequest" method="_on_Button_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="HTTPRequest" method="_on_HTTPRequest_request_completed"]

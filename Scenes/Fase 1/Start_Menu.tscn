@@ -1,0 +1,242 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Buttons/IniciarLight.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/Pixel Powerline.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Fase 1/Start_Menu.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Buttons/IniciarDark.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Fase 1/Menu_Back.png" type="Texture" id=5]
+[ext_resource path="res://music/SinsetDrive-StartMenu.mp3" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 130
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Iniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 463, 385 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Iniciar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MenuBack:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ScoreLayer/bestscore:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Iniciar:pause_mode")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Reveal"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Iniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 463, 370 ), Vector2( 463, 370 ), Vector2( 463, 385 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Iniciar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, -15 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Title:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MenuBack:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ScoreLayer/bestscore:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 5.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="GDScript" id=11]
+script/source = "extends CanvasLayer
+
+
+func _ready():
+	$bestscore.text = str(PlayerData.scoreFromDatabase)
+	pass
+"
+
+[sub_resource type="DynamicFontData" id=9]
+antialiased = false
+font_path = "res://Fonts/Pixel Powerline.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+font_data = SubResource( 9 )
+
+[node name="Start_Menu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="MenuBack" type="Sprite" parent="."]
+position = Vector2( 641, 361 )
+scale = Vector2( 2.02, 2.02 )
+texture = ExtResource( 5 )
+
+[node name="Title" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 600.0
+custom_fonts/font = SubResource( 1 )
+text = "KLONUS"
+align = 1
+valign = 1
+
+[node name="Iniciar" type="TouchScreenButton" parent="."]
+position = Vector2( 463, 385 )
+scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "Reveal"
+anims/RESET = SubResource( 2 )
+anims/Reveal = SubResource( 3 )
+
+[node name="BackSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.3
+autoplay = true
+
+[node name="ScoreLayer" type="CanvasLayer" parent="."]
+script = SubResource( 11 )
+
+[node name="bestscore" type="Label" parent="ScoreLayer"]
+margin_left = 836.0
+margin_top = 42.0
+margin_right = 932.0
+margin_bottom = 59.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = SubResource( 10 )
+align = 2
+valign = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

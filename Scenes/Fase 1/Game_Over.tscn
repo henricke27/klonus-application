@@ -1,0 +1,259 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Fonts/Pixel Powerline.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Fase 1/GameOver_Back.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Buttons/ReiniciarLight.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Buttons/ReiniciarDark.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Buttons/SairLight.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Buttons/SairDark.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/Fase 1/Game_Over.gd" type="Script" id=7]
+[ext_resource path="res://Sound FX/explosion.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sound FX/hit.wav" type="AudioStream" id=9]
+[ext_resource path="res://music/Aftermatch-GameOver.mp3" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../GameOverBack:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Reveal"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -15 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../GameOverBack:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options/Reiniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 463, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options/Reiniciar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Options/Sair:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 553, 453 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Options/Sair:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Reveal"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options/Reiniciar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 463, 335 ), Vector2( 463, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options/Reiniciar:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Options/Sair:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 553, 438 ), Vector2( 553, 453 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Options/Sair:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Game_Over" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="GameOverBack" type="Sprite" parent="."]
+position = Vector2( 640, 361 )
+scale = Vector2( 2.02, 2.02 )
+texture = ExtResource( 2 )
+
+[node name="Title" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 554.0
+custom_fonts/font = SubResource( 1 )
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="anim" type="AnimationPlayer" parent="Title"]
+autoplay = "Reveal"
+anims/RESET = SubResource( 2 )
+anims/Reveal = SubResource( 3 )
+
+[node name="Options" type="CanvasLayer" parent="."]
+
+[node name="Reiniciar" type="TouchScreenButton" parent="Options"]
+position = Vector2( 463, 350 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+
+[node name="Sair" type="TouchScreenButton" parent="Options"]
+position = Vector2( 553, 453 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+
+[node name="anim" type="AnimationPlayer" parent="Options"]
+root_node = NodePath("../..")
+autoplay = "Reveal"
+anims/RESET = SubResource( 4 )
+anims/Reveal = SubResource( 5 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -5.0
+pitch_scale = 0.4
+autoplay = true
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+pitch_scale = 0.5
+autoplay = true
+
+[node name="BackSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+pitch_scale = 1.2
+autoplay = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

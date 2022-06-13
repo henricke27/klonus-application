@@ -1,0 +1,662 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Scenes/Fase 1/Escudo.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Fase 1/AsteroideS.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Fase 1/Background-back.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Fase 1/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/Fase 1/LasereS.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Fase 1/background/layered/bg-back.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Fase 1/background/layered/bg-stars.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Fase 1/player/player-geral.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Fase 1/player/fire-ship.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Buttons/Gameplay/RightLight.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpDark.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpLight.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownLight.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Buttons/Gameplay/Fire Light.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Buttons/Gameplay/Fire.png" type="Texture" id=15]
+[ext_resource path="res://Scripts/Fase 1/Player-Ship.gd" type="Script" id=16]
+[ext_resource path="res://Scripts/Fase 1/HUD.gd" type="Script" id=17]
+[ext_resource path="res://Scripts/Fase 1/NaveS.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownDark.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownRightDark.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownLeftLight.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownLeftDark.png" type="Texture" id=22]
+[ext_resource path="res://Fonts/Pixel Powerline.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://Scripts/Fase 1/Game.gd" type="Script" id=24]
+[ext_resource path="res://Scripts/Fase 1/Contagem.gd" type="Script" id=25]
+[ext_resource path="res://Assets/Buttons/Gameplay/CenterLight.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Buttons/Gameplay/CenterDark.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Buttons/Gameplay/RightDark.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Buttons/Gameplay/LeftLight.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Buttons/Gameplay/LeftDark.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpRightLight.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpRightDark.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpLeftLight.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Buttons/Gameplay/UpLeftDark.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Buttons/Gameplay/DownRightLight.png" type="Texture" id=35]
+[ext_resource path="res://music/UpBeat-Gameplay.mp3" type="AudioStream" id=36]
+[ext_resource path="res://Scripts/Fase 1/Bonus.gd" type="Script" id=37]
+[ext_resource path="res://Sound FX/power-up.wav" type="AudioStream" id=38]
+
+[sub_resource type="Shader" id=5]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+
+uniform float veloc = 0.1;
+uniform float desloc = 0f;
+uniform float time = 0f;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV + (vec2(1, 0) * time * veloc) + vec2(0, desloc));
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+shader_param/veloc = 0.1
+shader_param/desloc = 0.0
+shader_param/time = 0.0
+
+[sub_resource type="Shader" id=7]
+code = "// NOTE: Shader automatically converted from Godot Engine 3.4.3.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+
+uniform float veloc = 0.2;
+uniform float desloc = 0f;
+uniform float time = 0f;
+
+void fragment(){
+	COLOR = texture(TEXTURE, UV + (vec2(1, 0) * time * veloc) + vec2(0, desloc));
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/veloc = 0.2
+shader_param/desloc = 0.0
+shader_param/time = 0.0
+
+[sub_resource type="Animation" id=4]
+resource_name = "Down"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire-ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire-ship:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -19.75, -1.25 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire-ship2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.114451 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -20.25, 2.75 ), Vector2( -19.75, 3 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fire-ship2:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Fire-ship2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire-ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire-ship:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20.25, -0.25 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire-ship2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire-ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire-ship:region_rect")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Rect2( 0, 0, 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire-ship:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -21.25, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fire-ship2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -19.75, 3 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Fire-ship2:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Fire-ship2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Up"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fire-ship:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Fire-ship:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -19.75, 3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Fire-ship2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fire-ship2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -20.5, -2.5 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Fire-ship2:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 26.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 5.0
+
+[sub_resource type="DynamicFontData" id=9]
+antialiased = false
+font_path = "res://Fonts/Pixel Powerline.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+font_data = SubResource( 9 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 110
+outline_size = 4
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 45
+font_data = ExtResource( 23 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 24 )
+
+[node name="Background-back" type="Sprite" parent="."]
+material = SubResource( 6 )
+position = Vector2( -10, -7 )
+scale = Vector2( 4.78, 4.6 )
+texture = ExtResource( 6 )
+centered = false
+script = ExtResource( 3 )
+player = NodePath("../Player")
+
+[node name="Stars" type="Node2D" parent="."]
+script = ExtResource( 5 )
+player = NodePath("../Player")
+
+[node name="Background-stars" type="Sprite" parent="Stars"]
+visible = false
+material = SubResource( 8 )
+position = Vector2( -22, -30 )
+scale = Vector2( 4.9, 4.9 )
+texture = ExtResource( 7 )
+centered = false
+script = ExtResource( 3 )
+player = NodePath("../../Player")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2( 339, 360 )
+scale = Vector2( 4, 4 )
+z_as_relative = false
+script = ExtResource( 16 )
+laseres = NodePath("../Stars")
+
+[node name="Escudo" parent="Player" instance=ExtResource( 1 )]
+modulate = Color( 0.596078, 1, 0.341176, 1 )
+position = Vector2( -1, 0 )
+
+[node name="Fire-ship" type="Sprite" parent="Player"]
+position = Vector2( -20.25, -0.25 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+vframes = 10
+frame = 9
+region_rect = Rect2( 0, -15, 0, 0 )
+
+[node name="Fire-ship2" type="Sprite" parent="Player"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -20.25, 2.75 )
+scale = Vector2( 0.8, 0.9 )
+texture = ExtResource( 9 )
+vframes = 10
+frame = 9
+
+[node name="Player" type="Sprite" parent="Player"]
+texture = ExtResource( 8 )
+hframes = 3
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+pause_mode = 2
+autoplay = "Idle"
+reset_on_save = false
+playback_speed = 3.0
+anims/Down = SubResource( 4 )
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 1 )
+anims/Up = SubResource( 3 )
+
+[node name="Blaster" type="Position2D" parent="Player"]
+position = Vector2( 25, 0 )
+
+[node name="Area" type="Area2D" parent="Player"]
+visible = false
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="Player/Area"]
+position = Vector2( -0.75, 0 )
+rotation = 1.5708
+shape = SubResource( 11 )
+
+[node name="Dead_area" type="Area2D" parent="Player"]
+visible = false
+collision_mask = 4
+
+[node name="Shape" type="CollisionShape2D" parent="Player/Dead_area"]
+shape = SubResource( 12 )
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 2.0
+
+[node name="TimerTiro" type="Timer" parent="Player"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Inimigos" type="Node2D" parent="."]
+script = ExtResource( 5 )
+player = NodePath("../Player")
+
+[node name="Asteroides" type="Node2D" parent="Inimigos"]
+script = ExtResource( 2 )
+
+[node name="Spawn_Timer" type="Timer" parent="Inimigos/Asteroides"]
+
+[node name="NaveS" type="Node2D" parent="Inimigos"]
+script = ExtResource( 18 )
+
+[node name="Spawn_Timer" type="Timer" parent="Inimigos/NaveS"]
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["camera"]]
+anchor_mode = 0
+current = true
+script = ExtResource( 4 )
+
+[node name="Controls" type="CanvasLayer" parent="."]
+
+[node name="Center" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 153, 519 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 26 )
+pressed = ExtResource( 27 )
+passby_press = true
+
+[node name="Up" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 153, 432 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 11 )
+passby_press = true
+action = "ui_up"
+
+[node name="Down" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 153, 606 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 13 )
+pressed = ExtResource( 19 )
+passby_press = true
+action = "ui_down"
+
+[node name="Right" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 240, 519 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 28 )
+passby_press = true
+action = "ui_right"
+
+[node name="Left" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 67, 519 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 29 )
+pressed = ExtResource( 30 )
+passby_press = true
+action = "ui_left"
+
+[node name="Fire" type="TouchScreenButton" parent="Controls"]
+position = Vector2( 1041, 495 )
+scale = Vector2( 2.2, 2.2 )
+normal = ExtResource( 14 )
+pressed = ExtResource( 15 )
+action = "ui_accept"
+
+[node name="UpRight" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 240, 433 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 31 )
+pressed = ExtResource( 32 )
+passby_press = true
+action = "ui_up_right"
+
+[node name="UpLeft" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 67, 432 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 33 )
+pressed = ExtResource( 34 )
+passby_press = true
+action = "ui_up_left"
+
+[node name="DownRight" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 240, 606 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 20 )
+passby_press = true
+action = "ui_down_right"
+
+[node name="DownLeft" type="TouchScreenButton" parent="Controls"]
+modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 67, 606 )
+scale = Vector2( 1.6, 1.6 )
+normal = ExtResource( 21 )
+pressed = ExtResource( 22 )
+passby_press = true
+action = "ui_down_left"
+
+[node name="HUD" type="CanvasLayer" parent="." groups=["hud"]]
+script = ExtResource( 17 )
+
+[node name="score" type="Label" parent="HUD"]
+margin_left = 836.0
+margin_top = 42.0
+margin_right = 932.0
+margin_bottom = 59.0
+rect_scale = Vector2( 4, 4 )
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 2
+valign = 1
+
+[node name="Contagem" type="Node2D" parent="HUD"]
+pause_mode = 2
+script = ExtResource( 25 )
+
+[node name="Label" type="Label" parent="HUD/Contagem"]
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_fonts/font = SubResource( 13 )
+text = "3"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="HUD/Contagem"]
+autostart = true
+
+[node name="Bonus" type="Node2D" parent="HUD"]
+script = ExtResource( 37 )
+
+[node name="TimerBonus" type="Timer" parent="HUD/Bonus"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Label" type="Label" parent="HUD/Bonus"]
+margin_left = 63.0
+margin_top = -1.0
+margin_right = 835.0
+margin_bottom = 160.0
+custom_colors/font_color = Color( 0, 1, 0.25098, 1 )
+custom_fonts/font = SubResource( 14 )
+valign = 1
+
+[node name="Powerup" type="AudioStreamPlayer" parent="HUD/Bonus"]
+stream = ExtResource( 38 )
+volume_db = 6.0
+pitch_scale = 1.2
+
+[node name="BackSong" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 36 )
+volume_db = 1.5
+pitch_scale = 1.05
+autoplay = true
+
+[connection signal="area_entered" from="Player/Area" to="Player" method="_on_Area_area_entered"]
+[connection signal="area_entered" from="Player/Dead_area" to="Player" method="_on_Dead_area_area_entered"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Player/TimerTiro" to="Player" method="_on_TimerTiro_timeout"]
+[connection signal="timeout" from="Inimigos/Asteroides/Spawn_Timer" to="Inimigos/Asteroides" method="_on_Spawn_Timer_timeout"]
+[connection signal="timeout" from="Inimigos/NaveS/Spawn_Timer" to="Inimigos/NaveS" method="_on_Spawn_Timer_timeout"]
+[connection signal="timeout" from="HUD/Contagem/Timer" to="HUD/Contagem" method="_on_Timer_timeout"]
+[connection signal="timeout" from="HUD/Bonus/TimerBonus" to="HUD/Bonus" method="_on_Timer_timeout"]
+
+[editable path="Player/Escudo"]

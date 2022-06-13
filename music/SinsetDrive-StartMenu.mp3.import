@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SinsetDrive-StartMenu.mp3-b6f7f7b72965c8700543b6e5f216fb29.mp3str"
+
+[deps]
+
+source_file="res://music/SinsetDrive-StartMenu.mp3"
+dest_files=[ "res://.import/SinsetDrive-StartMenu.mp3-b6f7f7b72965c8700543b6e5f216fb29.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

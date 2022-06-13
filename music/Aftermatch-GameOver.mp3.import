@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Aftermatch-GameOver.mp3-c8a73bdf1c2ce812ac8a9e86e5bceb11.mp3str"
+
+[deps]
+
+source_file="res://music/Aftermatch-GameOver.mp3"
+dest_files=[ "res://.import/Aftermatch-GameOver.mp3-c8a73bdf1c2ce812ac8a9e86e5bceb11.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

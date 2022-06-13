@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UpBeat-Gameplay.mp3-c1c6c86b79d134634ce1367b4ea13826.mp3str"
+
+[deps]
+
+source_file="res://music/UpBeat-Gameplay.mp3"
+dest_files=[ "res://.import/UpBeat-Gameplay.mp3-c1c6c86b79d134634ce1367b4ea13826.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
