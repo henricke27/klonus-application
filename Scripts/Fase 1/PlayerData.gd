@@ -1,7 +1,7 @@
 extends Node
 
 var id;
-export (String) var nickname;
+var nickname;
 var scoreCurrent = 0;
 var scoreFromDatabase;
 var authorization;
